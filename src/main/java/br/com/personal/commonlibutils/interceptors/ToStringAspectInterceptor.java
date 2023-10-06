@@ -10,7 +10,9 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.NoSuchElementException;
 import java.util.Objects;
+import java.util.StringTokenizer;
 
 @Aspect
 public class ToStringAspectInterceptor {
@@ -41,13 +43,14 @@ public class ToStringAspectInterceptor {
         if(Objects.nonNull(isAnnotatedCommomLibsActive)) return isAnnotatedCommomLibsActive;
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         try {
-            Class<?> mainClass = classLoader.loadClass(System.getProperty("sun.java.command"));
+            StringTokenizer tokenizer = new StringTokenizer(System.getProperty("sun.java.command")," ");
+            Class<?> mainClass = classLoader.loadClass(tokenizer.nextToken());
             if(Objects.nonNull(mainClass.getAnnotation(SpringBootApplication.class))){
                 return Objects.nonNull(mainClass.getAnnotation(EnableCommonLibs.class)) ?
                         (isAnnotatedCommomLibsActive = Boolean.TRUE) : (isAnnotatedCommomLibsActive = Boolean.FALSE);
             } else
                 return (isAnnotatedCommomLibsActive = Boolean.FALSE);
-        } catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException | NoSuchElementException e) {
             return (isAnnotatedCommomLibsActive = Boolean.FALSE);
         }
     }
