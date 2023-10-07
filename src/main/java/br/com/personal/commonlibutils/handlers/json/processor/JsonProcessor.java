@@ -1,6 +1,6 @@
-package br.com.personal.commonlibutils.json.processor;
+package br.com.personal.commonlibutils.handlers.json.processor;
 
-import br.com.personal.commonlibutils.json.provider.MapperJsonProvider;
+import br.com.personal.commonlibutils.handlers.json.provider.MapperJsonProvider;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.introspect.AnnotatedMember;
 import com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;

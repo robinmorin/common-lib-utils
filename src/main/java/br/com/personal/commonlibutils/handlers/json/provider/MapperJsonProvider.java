@@ -1,4 +1,4 @@
-package br.com.personal.commonlibutils.json.provider;
+package br.com.personal.commonlibutils.handlers.json.provider;
 
 import br.com.personal.commonlibutils.interfaces.SinglePrototype;
 import com.fasterxml.jackson.databind.DeserializationFeature;

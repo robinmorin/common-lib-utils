@@ -3,7 +3,7 @@ package br.com.personal.commonlibutils.interceptors;
 import br.com.personal.commonlibutils.annotations.EnableCommonLibs;
 import br.com.personal.commonlibutils.annotations.ToStringJson;
 import br.com.personal.commonlibutils.exceptions.MessageError;
-import br.com.personal.commonlibutils.json.processor.JsonProcessor;
+import br.com.personal.commonlibutils.handlers.json.processor.JsonProcessor;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
