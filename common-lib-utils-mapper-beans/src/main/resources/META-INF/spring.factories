@@ -1,1 +1,1 @@
-org.springframework.context.ApplicationListener=br.com.personal.commonlibutils.manager.mapperbeans.config.MapperBeansListener
+org.springframework.context.ApplicationListener=br.com.personal.commonlibutils.mapperbeans.config.MapperBeansListener
