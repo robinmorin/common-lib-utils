@@ -1,4 +1,4 @@
-package br.com.personal.commonlibutils.manager.core.exceptions;
+package br.com.personal.commonlibutils.core.exceptions;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

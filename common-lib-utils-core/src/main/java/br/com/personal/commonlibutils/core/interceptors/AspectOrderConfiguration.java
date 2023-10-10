@@ -1,4 +1,4 @@
-package br.com.personal.commonlibutils.manager.core.interceptors;
+package br.com.personal.commonlibutils.core.interceptors;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.DeclarePrecedence;

@@ -1,4 +1,4 @@
-package br.com.personal.commonlibutils.manager.mapperbeans.annotations;
+package br.com.personal.commonlibutils.mapperbeans.annotations;
 
 import java.lang.annotation.*;
 

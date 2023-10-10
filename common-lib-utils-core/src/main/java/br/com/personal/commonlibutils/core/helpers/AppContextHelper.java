@@ -1,7 +1,7 @@
-package br.com.personal.commonlibutils.manager.core.helpers;
+package br.com.personal.commonlibutils.core.helpers;
 
-import br.com.personal.commonlibutils.manager.core.exceptions.AppContextRuntimeException;
-import br.com.personal.commonlibutils.manager.core.interfaces.IAppInfo;
+import br.com.personal.commonlibutils.core.exceptions.AppContextRuntimeException;
+import br.com.personal.commonlibutils.core.interfaces.IAppInfo;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;

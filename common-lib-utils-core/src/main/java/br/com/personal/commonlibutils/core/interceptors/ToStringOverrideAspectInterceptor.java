@@ -1,10 +1,10 @@
-package br.com.personal.commonlibutils.manager.core.interceptors;
+package br.com.personal.commonlibutils.core.interceptors;
 
-import br.com.personal.commonlibutils.manager.core.annotations.EnableCommonLibs;
-import br.com.personal.commonlibutils.manager.core.annotations.ToStringJson;
-import br.com.personal.commonlibutils.manager.core.exceptions.MessageError;
-import br.com.personal.commonlibutils.manager.core.handlers.json.processor.JsonProcessor;
-import br.com.personal.commonlibutils.manager.core.helpers.AppContextHelper;
+import br.com.personal.commonlibutils.core.annotations.EnableCommonLibs;
+import br.com.personal.commonlibutils.core.annotations.ToStringJson;
+import br.com.personal.commonlibutils.core.exceptions.MessageError;
+import br.com.personal.commonlibutils.core.handlers.json.processor.JsonProcessor;
+import br.com.personal.commonlibutils.core.helpers.AppContextHelper;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -12,16 +12,16 @@ import org.aspectj.lang.annotation.Pointcut;
 
 @Aspect
 public class ToStringOverrideAspectInterceptor {
-    private Boolean isAnnotatedCommomLibsActive;
+    private Boolean isAnnotatedCommonLibsActive;
 
-    @Pointcut("within(@br.com.personal.commonlibutils.manager.core.annotations.ToStringJson *) && execution(* *.toString())")
+    @Pointcut("within(@br.com.personal.commonlibutils.core.annotations.ToStringJson *) && execution(* *.toString())")
     public void pointCutToStringJson() {
     }
 
     @Around("pointCutToStringJson()")
     public Object aroundInterceptor(ProceedingJoinPoint joinPoint) throws Throwable {
-        if(Boolean.FALSE.equals(isAnnotatedCommomLibsActive) ||
-                Boolean.FALSE.equals(isAnnotatedCommomLibsActive = AppContextHelper.isMainClassAnnotated(EnableCommonLibs.class)))
+        if(Boolean.FALSE.equals(isAnnotatedCommonLibsActive) ||
+                Boolean.FALSE.equals(isAnnotatedCommonLibsActive = AppContextHelper.isMainClassAnnotated(EnableCommonLibs.class)))
             return joinPoint.proceed();
 
         String proceedAction = "";

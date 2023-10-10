@@ -1,4 +1,4 @@
-package br.com.personal.commonlibutils.manager.core.helpers;
+package br.com.personal.commonlibutils.core.helpers;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;

@@ -1,8 +1,8 @@
-package br.com.personal.commonlibutils.manager.mapperbeans.config;
+package br.com.personal.commonlibutils.mapperbeans.config;
 
-import br.com.personal.commonlibutils.manager.core.exceptions.MapperRuntimeException;
-import br.com.personal.commonlibutils.manager.core.helpers.AppContextHelper;
-import br.com.personal.commonlibutils.manager.mapperbeans.annotations.EnableMapperBeans;
+import br.com.personal.commonlibutils.core.exceptions.MapperRuntimeException;
+import br.com.personal.commonlibutils.core.helpers.AppContextHelper;
+import br.com.personal.commonlibutils.mapperbeans.annotations.EnableMapperBeans;
 import lombok.extern.slf4j.Slf4j;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

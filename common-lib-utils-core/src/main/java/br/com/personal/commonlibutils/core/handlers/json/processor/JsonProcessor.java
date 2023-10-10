@@ -1,7 +1,7 @@
-package br.com.personal.commonlibutils.manager.core.handlers.json.processor;
+package br.com.personal.commonlibutils.core.handlers.json.processor;
 
-import br.com.personal.commonlibutils.manager.core.exceptions.JsonRuntimeException;
-import br.com.personal.commonlibutils.manager.core.handlers.json.provider.MapperJsonProvider;
+import br.com.personal.commonlibutils.core.exceptions.JsonRuntimeException;
+import br.com.personal.commonlibutils.core.handlers.json.provider.MapperJsonProvider;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.introspect.AnnotatedMember;
 import com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;

@@ -1,4 +1,4 @@
-package br.com.personal.commonlibutils.manager.core.exceptions;
+package br.com.personal.commonlibutils.core.exceptions;
 
 public class JsonRuntimeException extends RuntimeException {
     public JsonRuntimeException(String message) {

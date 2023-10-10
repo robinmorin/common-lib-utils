@@ -1,4 +1,4 @@
-package br.com.personal.commonlibutils.manager.mapperbeans.interfaces;
+package br.com.personal.commonlibutils.mapperbeans.interfaces;
 
 import org.mapstruct.InheritInverseConfiguration;
 

@@ -1,6 +1,6 @@
-package br.com.personal.commonlibutils.manager.core.handlers.json.provider;
+package br.com.personal.commonlibutils.core.handlers.json.provider;
 
-import br.com.personal.commonlibutils.manager.core.interfaces.ISinglePrototype;
+import br.com.personal.commonlibutils.core.interfaces.ISinglePrototype;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;

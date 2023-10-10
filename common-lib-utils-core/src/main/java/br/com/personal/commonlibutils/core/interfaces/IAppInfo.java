@@ -1,4 +1,4 @@
-package br.com.personal.commonlibutils.manager.core.interfaces;
+package br.com.personal.commonlibutils.core.interfaces;
 
 public interface IAppInfo {
     String getBasePackage();
