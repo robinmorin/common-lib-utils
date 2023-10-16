@@ -18,7 +18,7 @@ public class MapperBeansListener implements ApplicationListener<ApplicationPrepa
 
     @Override
     public void onApplicationEvent(ApplicationPreparedEvent event) {
-        if(!AppContextHelper.isMainClassAnnotated(EnableMapperBeans.class)) return;
+        if (!AppContextHelper.isMainClassAnnotated(EnableMapperBeans.class)) return;
         var context = event.getApplicationContext();
         try {
             var beanFactory = context.getBeanFactory();
@@ -27,12 +27,12 @@ public class MapperBeansListener implements ApplicationListener<ApplicationPrepa
 
             mapperClass.stream()
                     .filter(aClass -> !context.containsBean(StringUtils.uncapitalize(aClass.getSimpleName())))
-                    .forEach(aClass ->  {
+                    .forEach(aClass -> {
                         var beanName = StringUtils.uncapitalize(aClass.getSimpleName());
                         beanFactory.registerSingleton(beanName, Mappers.getMapper(aClass));
                         log.info("Registered Mapper {}", aClass.getSimpleName());
                     });
-        } catch (Exception e){
+        } catch (Exception e) {
             log.error("Errors ocurred trying to register the mappers from project. Error: {}", e.getMessage());
             throw new MapperRuntimeException(e);
         }

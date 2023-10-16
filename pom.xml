@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-<!--	<parent>-->
-<!--		<groupId>org.springframework.boot</groupId>-->
-<!--		<artifactId>spring-boot-starter-parent</artifactId>-->
-<!--		<version>2.7.16</version>-->
-<!--		<relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
-<!--	</parent>-->
+    <!--	<parent>-->
+    <!--		<groupId>org.springframework.boot</groupId>-->
+    <!--		<artifactId>spring-boot-starter-parent</artifactId>-->
+    <!--		<version>2.7.16</version>-->
+    <!--		<relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
+    <!--	</parent>-->
 
     <groupId>br.com.personal</groupId>
     <artifactId>common-lib-utils</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.1.0</version>
     <name>common-lib-utils</name>
     <packaging>pom</packaging>
     <description>common-lib-utils</description>
 
-	<properties>
-        <global.version>${project.version}</global.version>
-		<aspectj-plugin.version>1.14.0</aspectj-plugin.version>
-		<aspectj.version>1.9.7</aspectj.version>
+    <properties>
+        <aspectj-plugin.version>1.14.0</aspectj-plugin.version>
+        <aspectj.version>1.9.7</aspectj.version>
         <spring.version>2.7.16</spring.version>
         <java.version>11</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
-		<maven.compiler.target>${java.version}</maven.compiler.target>
-		<lombok.version>1.18.26</lombok.version>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <lombok.version>1.18.26</lombok.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <modules>
+        <module>common-lib-utils-annotation-processor</module>
         <module>common-lib-utils-manager</module>
         <module>common-lib-utils-core</module>
         <module>common-lib-utils-mapper-beans</module>
     </modules>
-	<dependencyManagement>
+    <dependencyManagement>
         <dependencies>
             <!--  Spring Framework to provide environment and context -->
             <dependency>
@@ -55,6 +55,16 @@
                 <version>${spring.version}</version>
             </dependency>
             <!-- Modules -->
+            <dependency>
+                <groupId>br.com.personal</groupId>
+                <artifactId>common-lib-utils-manager</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>br.com.personal</groupId>
+                <artifactId>common-lib-utils-annotation-processor</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <dependency>
                 <groupId>br.com.personal</groupId>
                 <artifactId>common-lib-utils-core</artifactId>

@@ -1,26 +1,29 @@
 package br.com.personal.commonlibutils.core.interceptors;
 
-import br.com.personal.commonlibutils.core.annotations.EnableCommonLibs;
-import br.com.personal.commonlibutils.core.annotations.ToStringJson;
 import br.com.personal.commonlibutils.core.exceptions.MessageError;
 import br.com.personal.commonlibutils.core.handlers.json.processor.JsonProcessor;
 import br.com.personal.commonlibutils.core.helpers.AppContextHelper;
+import br.com.personal.commonlibutils.manager.annotations.EnableCommonLibs;
+import br.com.personal.commonlibutils.manager.annotations.ToStringJson;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 
+import javax.annotation.processing.Generated;
+
 @Aspect
+@Generated("br.com.personal.commonlibutils.annotationprocessor.annotations.processor.AnnotationsProcessor")
 public class ToStringOverrideAspectInterceptor {
     private Boolean isAnnotatedCommonLibsActive;
 
-    @Pointcut("within(@br.com.personal.commonlibutils.core.annotations.ToStringJson *) && execution(* *.toString())")
+    @Pointcut("within(@br.com.personal.commonlibutils.manager.annotations.ToStringJson *) && execution(* *.toString())")
     public void pointCutToStringJson() {
     }
 
     @Around("pointCutToStringJson()")
     public Object aroundInterceptor(ProceedingJoinPoint joinPoint) throws Throwable {
-        if(Boolean.FALSE.equals(isAnnotatedCommonLibsActive) ||
+        if (Boolean.FALSE.equals(isAnnotatedCommonLibsActive) ||
                 Boolean.FALSE.equals(isAnnotatedCommonLibsActive = AppContextHelper.isMainClassAnnotated(EnableCommonLibs.class)))
             return joinPoint.proceed();
 

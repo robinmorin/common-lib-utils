@@ -1,4 +1,4 @@
-package br.com.personal.commonlibutils.core.annotations;
+package br.com.personal.commonlibutils.manager.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

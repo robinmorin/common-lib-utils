@@ -2,7 +2,6 @@
 
 ### Acrescentar esse plugin atualizando a versão do CommonLibUtils
 
-
             <plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>aspectj-maven-plugin</artifactId>
@@ -17,16 +16,20 @@
 					<encoding>${project.build.sourceEncoding}</encoding>
 					<forceAjcCompile>true</forceAjcCompile>
 					<sources/><!-- this is important!-->
+
 <!--				<weaveDependencies>-->
 <!--					<weaveDependency>-->
+
 					<aspectLibraries>
 						<aspectLibrary>
 							<groupId>br.com.personal</groupId>
 							<artifactId>common-lib-utils</artifactId>
 						</aspectLibrary>
 					</aspectLibraries>
+
 <!--					</weaveDependency>-->
 <!--				</weaveDependencies>-->
+
 					<weaveDirectories>
 						<weaveDirectory>${project.build.directory}/classes</weaveDirectory>
 					</weaveDirectories>

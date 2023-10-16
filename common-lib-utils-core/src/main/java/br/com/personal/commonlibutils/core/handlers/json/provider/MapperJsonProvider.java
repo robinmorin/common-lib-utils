@@ -13,6 +13,11 @@ import java.util.List;
 public class MapperJsonProvider implements Supplier<ObjectMapper> {
 
     private final MapperPrototype prototype = new MapperPrototype();
+
+    public ObjectMapper get() {
+        return prototype.newInstance();
+    }
+
     private static class MapperPrototype implements ISinglePrototype<ObjectMapper> {
         private static final List<?> onFeatures = List.of(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS,
                 SerializationFeature.WRITE_DATE_KEYS_AS_TIMESTAMPS,
@@ -22,15 +27,11 @@ public class MapperJsonProvider implements Supplier<ObjectMapper> {
 
         public ObjectMapper newInstance() {
             var objMap = new ObjectMapper();
-             onFeatures.stream().filter(SerializationFeature.class::isInstance).map(c->(SerializationFeature)c).forEach(objMap::enable);
-             onFeatures.stream().filter(DeserializationFeature.class::isInstance).map(c->(DeserializationFeature)c).forEach(objMap::enable);
-             offFeatures.stream().filter(SerializationFeature.class::isInstance).map(c->(SerializationFeature)c).forEach(objMap::disable);
-             offFeatures.stream().filter(DeserializationFeature.class::isInstance).map(c->(DeserializationFeature)c).forEach(objMap::disable);
+            onFeatures.stream().filter(SerializationFeature.class::isInstance).map(c -> (SerializationFeature) c).forEach(objMap::enable);
+            onFeatures.stream().filter(DeserializationFeature.class::isInstance).map(c -> (DeserializationFeature) c).forEach(objMap::enable);
+            offFeatures.stream().filter(SerializationFeature.class::isInstance).map(c -> (SerializationFeature) c).forEach(objMap::disable);
+            offFeatures.stream().filter(DeserializationFeature.class::isInstance).map(c -> (DeserializationFeature) c).forEach(objMap::disable);
             return objMap;
         }
-    }
-
-    public ObjectMapper get() {
-        return prototype.newInstance();
     }
 }

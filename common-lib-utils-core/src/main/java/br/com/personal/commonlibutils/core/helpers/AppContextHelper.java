@@ -25,27 +25,27 @@ public final class AppContextHelper {
         try {
             Class<?> mainClass = classLoader.loadClass(getAppInfo().getFullMainClass());
             return Objects.nonNull(mainClass.getAnnotation(SpringBootApplication.class)) &&
-                   Objects.nonNull(mainClass.getAnnotation(annotationClass));
+                    Objects.nonNull(mainClass.getAnnotation(annotationClass));
         } catch (ClassNotFoundException | NoSuchElementException e) {
             return false;
         }
     }
 
-    public static IAppInfo getAppInfo(){
+    public static IAppInfo getAppInfo() {
         try {
-            StringTokenizer tokenizer = new StringTokenizer(System.getProperty("sun.java.command")," ");
+            StringTokenizer tokenizer = new StringTokenizer(System.getProperty("sun.java.command"), " ");
             var fullMainClass = tokenizer.nextToken();
             var lastPoint = fullMainClass.lastIndexOf(".");
             if (lastPoint == -1) throw new InvalidPropertiesFormatException("Invalid value in System properties");
             var basePack = fullMainClass.substring(0, lastPoint);
-            var mainClass = fullMainClass.substring(lastPoint+1);
+            var mainClass = fullMainClass.substring(lastPoint + 1);
             return new AppInfoObj(basePack, mainClass, fullMainClass);
-        } catch (Exception e){
+        } catch (Exception e) {
             throw new AppContextRuntimeException(e);
         }
     }
 
-    public static Class<?> getClassFromProject(String className){
+    public static Class<?> getClassFromProject(String className) {
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         try {
             return classLoader.loadClass(className);
@@ -57,7 +57,7 @@ public final class AppContextHelper {
     @Getter
     @Setter
     @AllArgsConstructor
-    private static class AppInfoObj implements IAppInfo{
+    private static class AppInfoObj implements IAppInfo {
         private final String basePackage;
         private final String mainClass;
         private final String fullMainClass;

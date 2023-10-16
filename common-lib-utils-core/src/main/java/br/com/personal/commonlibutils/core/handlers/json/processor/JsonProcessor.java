@@ -18,9 +18,10 @@ public class JsonProcessor {
     private static final Consumer<String[]> applyFilter =
             excludeFields -> {
                 jsonMapper = mapperJsonProvider.get();
-                if(excludeFields != null){
+                if (excludeFields != null) {
                     jsonMapper.setAnnotationIntrospector(new JacksonAnnotationIntrospector() {
                         private final List<String> exclusions = List.of(excludeFields);
+
                         @Override
                         public boolean hasIgnoreMarker(final AnnotatedMember m) {
                             return exclusions.contains(m.getName()) || super.hasIgnoreMarker(m);
@@ -29,10 +30,12 @@ public class JsonProcessor {
                 }
             };
 
-    private JsonProcessor() throws IllegalAccessException { throw new IllegalAccessException("Constructor Private");}
+    private JsonProcessor() throws IllegalAccessException {
+        throw new IllegalAccessException("Constructor Private");
+    }
 
 
-    public static String toJson(Object object, String...excludeFields) {
+    public static String toJson(Object object, String... excludeFields) {
         try {
             applyFilter.accept(excludeFields);
             return jsonMapper.writeValueAsString(object);
@@ -42,7 +45,7 @@ public class JsonProcessor {
     }
 
 
-    public static <T>  T toObject(String json, Class<T> typeParameterClass) {
+    public static <T> T toObject(String json, Class<T> typeParameterClass) {
         try {
             return jsonMapper.readValue(json.getBytes(), typeParameterClass);
         } catch (IOException e) {
@@ -52,7 +55,7 @@ public class JsonProcessor {
         }
     }
 
-    public static <T,S> T convertTo(S object, Class<T> tClass) {
+    public static <T, S> T convertTo(S object, Class<T> tClass) {
         try {
             return jsonMapper.convertValue(object, tClass);
         } catch (IllegalArgumentException e) {
