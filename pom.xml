@@ -12,7 +12,7 @@
 
     <groupId>br.com.personal</groupId>
     <artifactId>common-lib-utils</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
     <name>common-lib-utils</name>
     <packaging>pom</packaging>
     <description>common-lib-utils</description>
